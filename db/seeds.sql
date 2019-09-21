@@ -4,4 +4,4 @@ INSERT INTO burgers
 VALUES
     ("Double-Bacon Cheeseburger"),
     ("Nashville Fried Chicken Burger"),
-    ("Cheeseburger;")
+    ("Cheeseburger");
