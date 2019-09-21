@@ -1,0 +1,25 @@
+<h1>Burgers for days</h1>
+
+<h2>Ready to eat</h2>
+
+<ul>
+    {{#each burg}}
+    {{#unless devoured}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Already Eaten ":("</h2>
+
+<ul>
+    {{#each burg}}
+    {{#if devoured}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>

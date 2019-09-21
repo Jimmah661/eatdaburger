@@ -1,17 +1,21 @@
-var orm = require('../config/orm');
+var orm = require('../config/orm.js');
 
-// Format is function()
-
-var burger = {
+var burg = {
     all: function (cb) {
-        orm.selectAll("burgers", function (res) {
+        orm.all("burgers", function (res) {
             cb(res);
         });
     },
-    create: function () {
-        orm.insertOne();
+    insert: function (cols, vals, cb) {
+        orm.insert("burgers", cols, vals, function (res) {
+            cb(res);
+        });
     },
-    update: function () {
-        orm.updateOne();
+    update: function (objColVals, condition, cb) {
+        orm.update("burgers", objColVals, condition, function (res) {
+            cb(res);
+        });
     }
-}
+};
+
+module.exports = burg;

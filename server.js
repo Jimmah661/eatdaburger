@@ -1,27 +1,30 @@
+// require Express package
 var express = require('express');
 
-var PORT = process.env.PORT || 3000;
+// Provide port information
+var PORT = process.env.PORT || 8000;
 
+// Generate the express app
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
+// define the static content
 app.use(express.static("public"));
 
-// Parse request body as JSON
+// provide middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
+// Activate handlebars
+var exphbs = require('express-handlebars');
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controller/burgerController.js");
+// Import the routes
+var routes = require('./controllers/burgers_controller.js');
 
 app.use(routes);
 
 app.listen(PORT, function () {
-    console.log("I can feel a connection, Its coming from http://localhost:" + PORT)
-})
+    console.log("Listening on address: http://localhost:" + PORT)
+});
